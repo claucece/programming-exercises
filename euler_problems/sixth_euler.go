@@ -23,6 +23,19 @@ func difference(n, x int) int {
 	return squareSum(n) - sumSquares(x)
 }
 
+// by Gauss formula
+
+func calculateDifference() int {
+	var sum, square, difference int
+	const N = 100
+
+	sum = N * (N + 1) / 2
+	square = (N * (N + 1) * (2*N + 1)) / 6
+	difference = sum*sum - square
+	return difference
+}
+
 func main() {
 	fmt.Println(difference(100, 100))
+	fmt.Println(calculateDifference())
 }
