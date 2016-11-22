@@ -26,12 +26,11 @@ func difference(n, x int) int {
 // by Gauss formula
 
 func calculateDifference() int {
-	var sum, square, difference int
 	const N = 100
 
-	sum = N * (N + 1) / 2
-	square = (N * (N + 1) * (2*N + 1)) / 6
-	difference = sum*sum - square
+	sum := N * (N + 1) / 2
+	square := (N * (N + 1) * (2*N + 1)) / 6
+	difference := sum*sum - square
 	return difference
 }
 
