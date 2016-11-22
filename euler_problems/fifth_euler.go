@@ -15,23 +15,31 @@ func reverse(s string) string {
 
 func makePalindrome(n int) int {
 	rev_int := []string{reverse(strconv.Itoa(n))}
-	return strconv.Atoi(rev_int)
+	var s string
+	for _, x := range rev_int {
+		s += x
+	}
+	str, _ := strconv.Atoi(s)
+	return str
 }
 
 func checkEquality(n int) int {
-	factors := []int{}
+	n--
+	factors := [2]int{}
 	first_half := makePalindrome(n)
-	for i := 99; i > 9; i-- {
-		if (n/i) > 99 || i*i < first_half {
+	for i := 999; i > 99; i-- {
+		if (first_half/i) > 999 || i*i < first_half {
 			break
 		}
 		if first_half%i == 0 {
 			factors[0] = first_half / i
 			factors[1] = first_half
+			break
 		}
 	}
+	return first_half
 }
 
 func main() {
-	fmt.Println(makePalindrome(10))
+	fmt.Println(makePalindrome(998))
 }
