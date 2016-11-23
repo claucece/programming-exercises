@@ -23,7 +23,7 @@ func difference(n, x int) int {
 	return squareSum(n) - sumSquares(x)
 }
 
-// by Gauss formula
+// by Gauss formula and extended
 
 func calculateDifference() int {
 	const N = 100
