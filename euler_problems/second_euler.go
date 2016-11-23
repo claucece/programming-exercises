@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package euler
 
 func fibonacci(n int) int {
 	switch n {
@@ -11,8 +9,4 @@ func fibonacci(n int) int {
 	default:
 		return fibonacci(n-1) + fibonacci(n-2)
 	}
-}
-
-func main() {
-	fmt.Println(fibonacci(10))
 }

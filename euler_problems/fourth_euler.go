@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package euler
 
 func findLargestFactor(num int) int {
 	counter := 2
@@ -18,8 +16,4 @@ func findLargestFactor(num int) int {
 		return largest_fact
 	}
 	return largest_fact
-}
-
-func main() {
-	fmt.Println(findLargestFactor(600851475143))
 }

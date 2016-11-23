@@ -1,7 +1,6 @@
-package main
+package euler
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -38,8 +37,4 @@ func checkEquality(n int) int {
 		}
 	}
 	return first_half
-}
-
-func main() {
-	fmt.Println(makePalindrome(998))
 }

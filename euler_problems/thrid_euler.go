@@ -1,8 +1,6 @@
-package main
+package euler
 
-import "fmt"
-
-func findPrimes(n int) int {
+func findFirstPrimes(n int) int {
 	var max int
 	for i := 1; i < n; i++ {
 		if n%i == 0 && i < max {
@@ -10,8 +8,4 @@ func findPrimes(n int) int {
 		}
 	}
 	return max
-}
-
-func main() {
-	fmt.Println(findPrimes(10))
 }

@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package euler
 
 func findPrimes(n int) int {
 	var isPrime bool
@@ -24,8 +20,4 @@ func findPrimes(n int) int {
 		}
 	}
 	return primes[len(primes)-1]
-}
-
-func main() {
-	fmt.Println(findPrimes(1001))
 }

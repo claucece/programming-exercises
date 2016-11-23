@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package euler
 
 // brute force
 func sumSquares(n int) int {
@@ -32,9 +30,4 @@ func calculateDifference() int {
 	square := (N * (N + 1) * (2*N + 1)) / 6
 	difference := sum*sum - square
 	return difference
-}
-
-func main() {
-	fmt.Println(difference(100, 100))
-	fmt.Println(calculateDifference())
 }
