@@ -5,7 +5,9 @@ import (
 )
 
 func (s *EulerSuite) TestFindFirstPrimes(c *C) {
-	result := 9
+	result := 5
+	secondResult := 6857
 
-	c.Assert(findFirstPrimes(10), Equals, result)
+	c.Assert(findLargestFactorByBruteForce(10), Equals, result)
+	c.Assert(findLargestFactor(600851475143), Equals, secondResult)
 }
