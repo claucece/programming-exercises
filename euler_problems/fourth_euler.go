@@ -23,18 +23,17 @@ func makePalindrome(n int) int {
 }
 
 func checkEquality(n int) int {
-	n--
 	factors := [2]int{}
-	first_half := makePalindrome(n)
+	palindrome := makePalindrome(n)
 	for i := 999; i > 99; i-- {
-		if (first_half/i) > 999 || i*i < first_half {
+		if (palindrome/i) > 999 || i*i < palindrome {
 			break
 		}
-		if first_half%i == 0 {
-			factors[0] = first_half / i
-			factors[1] = first_half
+		if palindrome%i == 0 {
+			factors[0] = palindrome / i
+			factors[1] = i
 			break
 		}
 	}
-	return first_half
+	return palindrome
 }
