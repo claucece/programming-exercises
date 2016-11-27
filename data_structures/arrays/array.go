@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 // Arrays: a numbered sequence of elements of a single type with a fixed length.
 // slices: can never be longer than array but can be smaller. x := make([]float64, 5)
 // x := make([]float64, 5, 10) being 10 the capacity of array and 5 the length of slice.
@@ -23,6 +27,15 @@ var sliceExample = slice{
 	Length:        50,
 	Capacity:      256,       //equal to the length of the underlying array, minus the index in the array of the first element of the slice.
 	ZerothElement: &array[0], //pointing to the array
+}
+
+//read each element
+func read(s []int) int {
+	var v int
+	for i := 0; i < len; i++ {
+		v = s[i]
+	}
+	return v
 }
 
 // how to make something optional? how to define the type?
