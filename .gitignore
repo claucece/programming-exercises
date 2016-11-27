@@ -13,3 +13,6 @@ Thumbs.db
 #Vim files
 *.swp
 *.swo
+
+# Spelling
+.spelling
