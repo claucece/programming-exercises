@@ -1,8 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"errors"
 )
+
+// TODO: do this with sliceExample, refactor all
 
 // Arrays: a numbered sequence of elements of a single type with a fixed length.
 // slices: can never be longer than array but can be smaller. x := make([]float64, 5)
@@ -13,14 +15,19 @@ import (
 // a slice is a piece of an array
 // [0:5]: inclusive, exclusive
 
+type array struct {
+	Length        int
+	ZerothElement *int
+}
+
 // this is the array
-var array [256]byte
+var array [256]int
 
 // this is the slice
 type slice struct {
 	Length        int
 	Capacity      int
-	ZerothElement *byte
+	ZerothElement *int
 }
 
 var sliceExample = slice{
@@ -29,17 +36,52 @@ var sliceExample = slice{
 	ZerothElement: &array[0], //pointing to the array
 }
 
-//read each element
-func read(s []int) int {
-	var v int
-	for i := 0; i < len; i++ {
-		v = s[i]
+func isInSlice(s []int, x int) (int, bool) {
+	i, pos := 1
+	for i <= len(s) && s[i] < x {
+		i++
 	}
-	return v
+	if i > len(s) || s[i] > x {
+		pos = -1
+		return pos, false
+	}
+	return pos, true
+}
+
+func isEmpty(s []int) bool {
+	if len(s) == 0 || len(s) == nil {
+		return true
+	}
+	return false
+}
+
+//reads each element
+func read(s []int) (error, int) {
+	var v int
+	if isEmpty {
+		return errors.New("Empty slice")
+	} else {
+		for i := 0; i <= len(s); i++ {
+			v = s[i]
+		}
+	}
+	return _, v
+}
+
+//writes elements
+func write(n, pos int, s []int) (error, []int) {
+	if isEmpty {
+		return errors.New("Empty slice")
+	} else {
+		if s[pos] == 0 || s[pos] == nil {
+			s[pos] = n
+		}
+	}
+	return _, s
 }
 
 // how to make something optional? how to define the type?
-func make1(types string, length, capacity int) []int {
+func makeSlice(types string, length, capacity int) []int {
 	if length < capacity {
 		var slice2 []int // how to pass the type here?
 		slice2 = slice2[:length]
@@ -48,31 +90,57 @@ func make1(types string, length, capacity int) []int {
 	return nil
 }
 
-func append1(original []int, position int, value int) []int {
+func appendToSlice(original []int, position, value int, order bool) (error, []int) {
+	if !order {
+		// make slice of original length plus 1
+		target := make([]int, len(original)+1)
 
-	// make slice of original length plus 1
-	target := make([]int, len(original)+1)
+		// copy the contents of original[0:position] to target
+		copy(target, original[:position])
 
-	// copy the contents of original[0:position] to target
-	copy(target, original[:position])
+		// replace but is in position with value
+		target[position] = value
 
-	// replace but is in position with value
-	target[position] = value
-
-	// copy contents of original[position:len(arr)] to target[position+1:len(target)]
-	copy(target[position+1:], original[position:])
-
-	return target
+		// copy contents of original[position:len(arr)] to target[position+1:len(target)]
+		copy(target[position+1:], original[position:])
+	} else {
+		err := errors.New("There is no space")
+		return err, _
+	}
+	return _, target
 }
 
-func delete(original []int, d int, order bool) []int {
+func deleteInSlice(original []int, d int, order bool) (error, []int) {
 	var target []int
-	if order == true {
-		target = original[:d+copy(original[d:], original[d+1:])]
-	} else {
-		target = target[:len(target)-1]
+	if !isEmpty {
+		if order {
+			target = original[:d+copy(original[d:], original[d+1:])]
+			return _, target
+		} else if !order {
+			target = target[:len(target)-1]
+			return _, target
+		} else {
+			return errors.New("element not found"), original
+		}
 	}
-	return target
+	return errors.New("slice is Empty"), target
+}
+
+func updateInSlice(original []int, u, x int, order bool) (error, []int) {
+	if !isEmpty {
+		if order == false {
+			for _, i := range original {
+				if original[i] == x {
+					original[i] = u
+					return _, original
+				} else {
+					return errors.New("Element not found"), original
+
+				}
+			}
+		}
+	}
+	return errors.New("slice is empty"), original
 }
 
 //NEW vs MAKE
