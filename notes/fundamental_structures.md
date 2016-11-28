@@ -36,7 +36,17 @@ NTC: max_limit - min_limit + 1
 4. Ordering
 5. Searching
 
+
 ## Bidimensional Arrays
 
 It is a finite, homogenous and ordered group where every element is refered by two indexes.
-The first one is for row and the second one for column. 
+The first one is for row and the second one for column.
+
+### Definitions
+
+array_identifier = ARRAY[min_limita..max_limita, min_limitb..mac_limitb] OF type
+
+min_limita..max_limita: row
+min_limitb..mac_limitb: columns
+
+TNC = (min_limita - max_limita + 1) * (max_limita, min_limitb - mac_limitb + 1)
