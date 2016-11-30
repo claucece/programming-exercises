@@ -50,3 +50,12 @@ min_limita..max_limita: row
 min_limitb..mac_limitb: columns
 
 TNC = (min_limita - max_limita + 1) * (max_limita, min_limitb - mac_limitb + 1)
+
+### Order
+It can be ordered by row or colum: 
+
+By row:
+A[1, 1]; A[1,2]
+
+By column:
+A[1, 1]; A[2,1]
