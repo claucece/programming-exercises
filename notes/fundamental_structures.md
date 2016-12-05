@@ -39,7 +39,8 @@ NTC: max_limit - min_limit + 1
 
 ## Bidimensional Arrays
 
-It is a finite, homogenous and ordered group where every element is refered by two indexes.
+It is a finite, homogenous and ordered group where every element is refered by 
+two indexes.
 The first one is for row and the second one for column.
 
 ### Definitions
@@ -59,3 +60,60 @@ A[1, 1]; A[1,2]
 
 By column:
 A[1, 1]; A[2,1]
+
+### Equation for finding an element
+
+m : row
+n : columns
+POSINI: position for the array 
+
+By rows:
+LOC(A[i, j]) = POSINI + n * (i - 1) + (j - 1)
+
+By columns: 
+
+LOC(A[i, j]) = POSINI + m * (j - 1) + (i - 1)
+
+## Multidimensional Arrays
+
+Length of dimension: Li
+Efective index: IEi
+Index: Ki
+
+### Equation for finding an element
+
+By rows:
+
+LOC(A[Ki]) = POSINI + ((((IE1 * L2 + IE2) * L3 + EI2) * L4 + ... + IEN-1) * LN + IEN)
+
+Example: 
+
+Array of 2 x 3 x 2
+
+Find A[2, 3, 1]
+
+L1 := 2 - 1 + 1 = 2
+L2 := 3 - 1 + 1 = 3
+L3 := 2 - 1 + 1 = 2
+
+IE1 := K1 - Liminf1 = 2 - 1 = 1
+IE2 := K2 - Liminf2 = 3 - 1 = 2
+IE3 := K3 - Liminf3 = 1 - 1 = 0
+
+By colums:
+
+LOC(A[Ki]) = POSINI + (((((IEN * LN-1 + IEN-1) * LN-2) + ... + IE3) * L2 + IE2) * L1 + IE1)
+
+Example: 
+
+Array of 2 x 3 x 2
+
+Find A[2, 3, 1]
+
+L1 := 2 - 1 + 1 = 2
+L2 := 3 - 1 + 1 = 3
+L3 := 2 - 1 + 1 = 2
+
+IE1 := K1 - Liminf1 = 2 - 1 = 1
+IE2 := K2 - Liminf2 = 3 - 1 = 2
+IE3 := K3 - Liminf3 = 1 - 1 = 0
