@@ -3,18 +3,14 @@ package euler
 // by this theorem: Any integer greater than 1 is either a prime number,
 // or can be written as a unique product of prime numbers (ignoring the order).
 func findLargestFactor(n int) int {
-	counter := 2
 	var lrgst_fctr int
+	counter := 2
 	for counter*counter <= n {
 		if n%counter == 0 {
 			n /= counter
-			lrgst_fctr = counter
-		} else {
-			counter++
+			lrgst_fctr = n
 		}
-	}
-	if n > 0 {
-		lrgst_fctr = n
+		counter++
 	}
 	return lrgst_fctr
 }
