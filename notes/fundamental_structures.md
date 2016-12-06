@@ -39,7 +39,7 @@ NTC: max_limit - min_limit + 1
 
 ## Bidimensional Arrays
 
-It is a finite, homogenous and ordered group where every element is refered by 
+It is a finite, homogenous and ordered group where every element is refered by
 two indexes.
 The first one is for row and the second one for column.
 
@@ -53,7 +53,7 @@ min_limitb..mac_limitb: columns
 TNC = (min_limita - max_limita + 1) * (max_limita, min_limitb - mac_limitb + 1)
 
 ### Order
-It can be ordered by row or colum: 
+It can be ordered by row or colum:
 
 By row:
 A[1, 1]; A[1,2]
@@ -65,12 +65,12 @@ A[1, 1]; A[2,1]
 
 m : row
 n : columns
-POSINI: position for the array 
+POSINI: position for the array
 
 By rows:
 LOC(A[i, j]) = POSINI + n * (i - 1) + (j - 1)
 
-By columns: 
+By columns:
 
 LOC(A[i, j]) = POSINI + m * (j - 1) + (i - 1)
 
@@ -86,7 +86,7 @@ By rows:
 
 LOC(A[Ki]) = POSINI + ((((IE1 * L2 + IE2) * L3 + EI2) * L4 + ... + IEN-1) * LN + IEN)
 
-Example: 
+Example:
 
 Array of 2 x 3 x 2
 
@@ -104,7 +104,7 @@ By colums:
 
 LOC(A[Ki]) = POSINI + (((((IEN * LN-1 + IEN-1) * LN-2) + ... + IE3) * L2 + IE2) * L1 + IE1)
 
-Example: 
+Example:
 
 Array of 2 x 3 x 2
 
@@ -117,3 +117,7 @@ L3 := 2 - 1 + 1 = 2
 IE1 := K1 - Liminf1 = 2 - 1 = 1
 IE2 := K2 - Liminf2 = 3 - 1 = 2
 IE3 := K3 - Liminf3 = 1 - 1 = 0
+
+## Matrix
+
+Organizes a group of elements by rows and columns.
