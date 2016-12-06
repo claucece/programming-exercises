@@ -5,9 +5,8 @@ import "math"
 func generatePrimes(lmt int) []int {
 	primes := []int{2}
 	var isPrime bool
-
 	for i := 3; i <= lmt; i += 2 {
-		j := 0
+		var j int
 		isPrime = true
 		for primes[j]*primes[j] <= i {
 			if i%primes[j] == 0 {

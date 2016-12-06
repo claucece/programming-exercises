@@ -36,7 +36,7 @@ func findAPithagoreanTripletByCondition() (int, int, int) {
 	return 0, 0, 0
 }
 
-// number theoretical approach: euclides formula and primitive(a A Pythagorean Triplet is
+// number theoretical approach: euclides formula and primitive (a Pythagorean Triplet is
 // called primitive if a, b and c are coprime. That means that the greatest common divisor (gcd) of
 // the set {a,b,c} is one.
 

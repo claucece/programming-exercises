@@ -2,21 +2,21 @@ package euler
 
 // by this theorem: Any integer greater than 1 is either a prime number,
 // or can be written as a unique product of prime numbers (ignoring the order).
-func findLargestFactor(num int) int {
+func findLargestFactor(n int) int {
 	counter := 2
-	var largest_fact int
-	for counter*counter <= num {
-		if num%counter == 0 {
-			num /= counter
-			largest_fact = counter
+	var lrgst_fctr int
+	for counter*counter <= n {
+		if n%counter == 0 {
+			n /= counter
+			lrgst_fctr = counter
 		} else {
 			counter++
 		}
 	}
-	if num > 0 {
-		largest_fact = num
+	if n > 0 {
+		lrgst_fctr = n
 	}
-	return largest_fact
+	return lrgst_fctr
 }
 
 //by brute force

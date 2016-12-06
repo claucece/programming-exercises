@@ -6,7 +6,7 @@ func findPrimes(n int) int {
 	counter := 1
 	for len(primes) < n {
 		counter += 2
-		j := 0
+		var j int
 		isPrime = true
 		for primes[j]*primes[j] <= counter {
 			if counter%primes[j] == 0 {
