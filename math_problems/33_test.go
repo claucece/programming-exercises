@@ -12,6 +12,8 @@ type MathSuite struct{}
 var _ = Suite(&MathSuite{})
 
 func (s *MathSuite) Test_SwitchToArabicNumber(c *C) {
-	result := 1
-	c.Assert(switchToArabic("I"), Equals, result)
+	oneCharResult := 1
+	multipleCharResult := 6
+	c.Assert(switchToArabic("I"), Equals, oneCharResult)
+	c.Assert(switchToArabic("VI"), Equals, multipleCharResult)
 }
