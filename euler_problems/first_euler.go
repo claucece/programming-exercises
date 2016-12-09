@@ -6,13 +6,13 @@ import (
 
 // common brute force one
 func sumMultiplesByBruteForce(n int) int {
-	result := 0
+	sum := 0
 	for i := 1; i < n; i++ {
 		if i%3 == 0 || i%5 == 0 {
-			result += i
+			sum += i
 		}
 	}
-	return result
+	return sum
 }
 
 // By this: http://www.wikihow.com/Sum-the-Integers-from-1-to-N
@@ -27,11 +27,11 @@ func sumMultiplesByProgression() int {
 
 // interesting but pretty useless
 func sumMultiples(n int) int {
-	result := 0
+	sum := 0
 	for x := range iter.N(n) {
 		if x%3 == 0 || x%5 == 0 {
-			result += x
+			sum += x
 		}
 	}
-	return result
+	return sum
 }
