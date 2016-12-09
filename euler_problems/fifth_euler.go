@@ -4,16 +4,12 @@ import "math"
 
 func generatePrimes(lmt int) []int {
 	primes := []int{2}
-	var isPrime bool
 	for i := 3; i <= lmt; i += 2 {
-		var j int
-		isPrime = true
-		for primes[j]*primes[j] <= i {
+		isPrime := true
+		for j := 0; primes[j]*primes[j] <= i; j++ {
 			if i%primes[j] == 0 {
 				isPrime = false
-				break
 			}
-			j++
 		}
 		if isPrime {
 			primes = append(primes, i)
@@ -22,13 +18,14 @@ func generatePrimes(lmt int) []int {
 	return primes
 }
 
-func findSmallerDivisor(lmt int) int {
+func findEvenlyDivisible(lmt int) int {
 	primes := generatePrimes(lmt)
 	result := 1.0
 
 	for i := 0; i < len(primes); i++ {
-		a := math.Floor(math.Log(float64(lmt)) / math.Log(float64(primes[i])))
-		result = result * (math.Pow(float64(primes[i]), a))
+		f_primes := float64(primes[i])
+		exp := math.Floor(math.Log(float64(lmt)) / math.Log(f_primes))
+		result = result * (math.Pow(f_primes, exp))
 	}
 	return int(result)
 }
