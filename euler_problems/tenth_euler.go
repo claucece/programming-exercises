@@ -4,7 +4,7 @@ package euler
 
 // a weird brute force one. It is only working until 25, of course.
 func findSumOfPrimesByBruteForce(n int) int {
-	var sum int
+	sum := 0
 	for i := 2; i < n; i++ {
 		if i == 2 || i%2 != 0 {
 			if i == 3 || i%3 != 0 {
@@ -25,7 +25,7 @@ func contains(s []int, e int) bool {
 }
 
 func sumPrimes(primes []int) int {
-	var sum int
+	sum := 0
 	for _, i := range primes {
 		sum += i
 	}
