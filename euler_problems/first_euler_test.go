@@ -19,5 +19,5 @@ func (s *EulerSuite) Test_SumMultiplesByBruteForce(c *C) {
 
 func (s *EulerSuite) Test_SumMultiplesByProgression(c *C) {
 	result := 233168
-	c.Assert(sumMultiples(), Equals, result)
+	c.Assert(sumMultiples(1000), Equals, result)
 }

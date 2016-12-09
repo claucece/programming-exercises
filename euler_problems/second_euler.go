@@ -1,9 +1,7 @@
 package euler
 
-// I like this, but I think there is a more interesting way of doing this.
-// Probably by even numbers.
-func fibonacci(n int) int {
-	var result int
+func findFibonacciSequence(n int) int {
+	result := 0
 	for result < n {
 		switch n {
 		case 0:
@@ -11,9 +9,24 @@ func fibonacci(n int) int {
 		case 1:
 			return 1
 		default:
-			numbers := fibonacci(n-1) + fibonacci(n-2)
+			numbers := findFibonacciSequence(n-1) + findFibonacciSequence(n-2)
 			result += numbers
 		}
 	}
+	return result
+}
+
+// Only even numbers
+func findFibonacciEvenNumbers(n int) int {
+	result, fib3 := 2, 2
+	sum, fib6 := 0, 0
+
+	for result < n {
+		sum += result
+		result = 4*fib3 + fib6
+		fib6 = fib3
+		fib3 = result
+	}
+
 	return result
 }
