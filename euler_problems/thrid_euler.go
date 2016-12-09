@@ -2,26 +2,25 @@ package euler
 
 // by this theorem: Any integer greater than 1 is either a prime number,
 // or can be written as a unique product of prime numbers (ignoring the order).
-func findLargestFactor(n int) int {
-	var lrgst_fctr int
-	counter := 2
-	for counter*counter <= n {
-		if n%counter == 0 {
-			n /= counter
-			lrgst_fctr = n
+func findLargestPrime(n int) int {
+	lrgp, dvsr := 0, 2
+	for dvsr*dvsr <= n {
+		if n%dvsr == 0 {
+			n /= dvsr
+			lrgp = n
 		}
-		counter++
+		dvsr++
 	}
-	return lrgst_fctr
+	return lrgp
 }
 
 //by brute force
-func findLargestFactorByBruteForce(n int) int {
-	var lrgs_fctr int
+func findLargestPrimeByBruteForce(n int) int {
+	lrgp := 0
 	for i := 2; i < n; i++ {
 		if n%i == 0 {
-			lrgs_fctr = i
+			lrgp = i
 		}
 	}
-	return lrgs_fctr
+	return lrgp
 }
