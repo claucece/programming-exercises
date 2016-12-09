@@ -13,7 +13,7 @@ func reverse(s string) string {
 }
 
 func makePalindrome(n int) int {
-	var s string
+	s := ""
 	rev_int := []string{reverse(strconv.Itoa(n))}
 	for _, x := range rev_int {
 		s += x
