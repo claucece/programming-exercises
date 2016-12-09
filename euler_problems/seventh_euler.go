@@ -1,22 +1,18 @@
 package euler
 
-func findPrimes(n int) int {
-	var isPrime bool
+func findPrime(n int) int {
 	primes := []int{2}
-	counter := 1
+	smallp := 1
 	for len(primes) < n {
-		counter += 2
-		var j int
-		isPrime = true
-		for primes[j]*primes[j] <= counter {
-			if counter%primes[j] == 0 {
+		smallp += 2
+		isPrime := true
+		for j := 0; primes[j]*primes[j] <= smallp; j++ {
+			if smallp%primes[j] == 0 {
 				isPrime = false
-				break
 			}
-			j++
 		}
 		if isPrime {
-			primes = append(primes, counter)
+			primes = append(primes, smallp)
 		}
 	}
 	return primes[len(primes)-1]
