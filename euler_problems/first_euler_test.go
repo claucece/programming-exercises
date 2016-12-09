@@ -11,12 +11,13 @@ type EulerSuite struct{}
 
 var _ = Suite(&EulerSuite{})
 
-func (s *EulerSuite) TestDivisorsByBruteForce(c *C) {
+func (s *EulerSuite) Test_SumMultiplesByBruteForce(c *C) {
 	result := 233168
-	c.Assert(bruteSumMultiples(1000), Equals, result)
+	c.Assert(sumMultiplesByBruteForce(1000), Equals, result)
+	c.Assert(sumMultiples(1000), Equals, result)
 }
 
-func (s *EulerSuite) TestDivisorsByProgression(c *C) {
+func (s *EulerSuite) Test_SumMultiplesByProgression(c *C) {
 	result := 233168
 	c.Assert(sumMultiples(), Equals, result)
 }
