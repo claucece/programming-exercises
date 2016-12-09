@@ -22,7 +22,7 @@ func makePalindrome(n int) int {
 	return str
 }
 
-func checkEquality(n int) int {
+func findLargestPalindrome(n int) int {
 	factors := [2]int{}
 	palindrome := makePalindrome(n)
 	for i := 999; i > 99; i-- {

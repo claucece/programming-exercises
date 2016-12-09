@@ -4,8 +4,8 @@ import (
 	. "gopkg.in/check.v1"
 )
 
-func (s *EulerSuite) TestFindLagestPalindrome(c *C) {
+func (s *EulerSuite) Test_FindLagestPalindrome(c *C) {
 	result := 899
 
-	c.Assert(checkEquality(998), Equals, result)
+	c.Assert(findLargestPalindrome(998), Equals, result)
 }
