@@ -59,5 +59,3 @@ func findProductOfAdjecentNumbersByGrid(n int) int {
 	}
 	return greatest
 }
-
-var one = 1
