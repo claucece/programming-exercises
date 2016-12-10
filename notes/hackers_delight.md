@@ -129,3 +129,43 @@ Integer arithmetic on computers is often called "fixed point" arithmetic and
 the integers themselves are often called fixed point numbers. Real numbers on
 computers (which may have fractional parts) are often called "floating point"
 numbers.
+
+### Floating Point Arithmetic
+
+Floating point arithmetic derives its name from something that happens when you
+use exponential notation. Consider the number 123: it can be written using
+exponential notation as:
+
+* 1.23 * 10^2
+* 12.3 * 10^1
+* 123 * 10^0
+* .123 * 10^3
+* 1230 * 10^-1
+
+All of these representations of the number 123 are numerically equivalent. They
+differ only in their "normalization": where the decimal point appears in the
+first number. In each case, the number before the multiplication operator ("*")
+represents the significant figures in the number (which distinguish it from
+other numbers with the same normalization and exponent); we will call this
+number the "significand" (also called the "mantissa" in other texts, which call
+the exponent the "characteristic").
+
+Notice how the decimal point "floats" within the number as the exponent is
+changed. This phenomenon gives floating point numbers their name. Only two of
+the representations of the number 123 above are in any kind of standard form.
+The first representation, 1.23 * 10^2, is in a form called "scientific notation",
+and is distinguished by the normalization of the significand:
+
+    in scientific notation, the significand is always a number greater than or
+    equal to 1 and less than 10.
+
+Standard computer normalization for floating point numbers follows the fourth
+form in the list above:
+
+    the significand is greater than or equal to .1, and is always less than 1.
+
+Of course, in a binary computer, all numbers are stored in base 2 instead of
+base 10; for this reason, the normalization of a binary floating point number
+simply requires that there be no leading zeroes after the binary point (just as
+the decimal point separates the 100 place from the 10-1 place, the binary point
+separates the 20 place from the 2-1 place).
