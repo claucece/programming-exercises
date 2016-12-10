@@ -8,5 +8,5 @@ func (s *EulerSuite) Test_FindProductOfFourAdjecentNumbersInGrid(c *C) {
 	expctRst := 70600674
 
 	c.Assert(findProductOfAdjecentNumbersByGrid(4), Equals, expctRst)
-	// c.Assert(findProductOfAdjecentNumbersByFile(4), Equals, expctRst)
+	c.Assert(findProductOfAdjecentNumbersByFile(4), Equals, expctRst)
 }

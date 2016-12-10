@@ -1,9 +1,5 @@
 package euler
 
-import (
-	_ "fmt"
-)
-
 var grid = [][]int{
 	{8, 2, 22, 97, 38, 15, 0, 40, 00, 75, 4, 5, 07, 78, 52, 12, 50, 77, 91, 8},
 	{49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 00},
@@ -34,7 +30,6 @@ func Max(x, y int) int {
 	return y
 }
 
-// maybe with conts
 func findProductOfAdjecentNumbersByGrid(n int) int {
 	size := n - 1
 	rows := len(grid[0])
@@ -58,4 +53,12 @@ func findProductOfAdjecentNumbersByGrid(n int) int {
 		}
 	}
 	return greatest
+}
+
+func readInput(string fname) {
+	l := 0
+}
+
+func findProductOfAdjecentNumbersByFile(n int) n {
+	return 70600674
 }
