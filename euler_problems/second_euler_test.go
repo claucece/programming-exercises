@@ -5,15 +5,20 @@ import (
 )
 
 func (s *EulerSuite) Test_FindFibonacciSum(c *C) {
-	nul_result := 0
-	first_result := 1
-	result := 89
-	c.Assert(findFibonacciSequence(0), Equals, nul_result)
-	c.Assert(findFibonacciSequence(1), Equals, first_result)
-	c.Assert(findFibonacciSequence(10), Equals, result)
+	nulRslt := 0
+	frstRslt := 1
+	rslt := 89
+	c.Assert(findFibonacciSequence(0), Equals, nulRslt)
+	c.Assert(findFibonacciSequence(1), Equals, frstRslt)
+	c.Assert(findFibonacciSequence(10), Equals, rslt)
 }
 
 func (s *EulerSuite) Test_FindFibonacciEvenSum(c *C) {
-	result := 34
-	c.Assert(findFibonacciEvenNumbers(10), Equals, result)
+	rslt := 34
+	c.Assert(findFibonacciEvenNumbers(10), Equals, rslt)
+}
+
+func (s *EulerSuite) Test_FindLargestFibonacci(c *C) {
+	rslt := "55"
+	c.Assert(findLargestFibonacciInBigInt(10), Equals, rslt)
 }

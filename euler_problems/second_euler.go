@@ -1,5 +1,9 @@
 package euler
 
+import (
+	"math/big"
+)
+
 func findFibonacciSequence(n int) int {
 	result := 0
 	for result < n {
@@ -29,4 +33,18 @@ func findFibonacciEvenNumbers(n int) int {
 	}
 
 	return result
+}
+
+// with big numbers
+func findLargestFibonacciInBigInt(n int) string {
+	last := big.NewInt(1)
+	current := big.NewInt(1)
+
+	for i := 2; i < n; i++ {
+		last.Add(last, current)
+		tmp := last
+		last = current
+		current = tmp
+	}
+	return current.String()
 }

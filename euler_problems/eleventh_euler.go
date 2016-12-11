@@ -55,10 +55,10 @@ func findProductOfAdjecentNumbersByGrid(n int) int {
 	return greatest
 }
 
-func readInput(string fname) {
-	l := 0
-}
+//func readInput(string fname) {
+//	l := 0
+//}
 
-func findProductOfAdjecentNumbersByFile(n int) n {
-	return 70600674
-}
+//func findProductOfAdjecentNumbersByFile(n int) n {
+//	return 70600674
+//}
