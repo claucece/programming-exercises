@@ -22,3 +22,8 @@ func (s *EulerSuite) Test_FindLargestFibonacci(c *C) {
 	rslt := "55"
 	c.Assert(findLargestFibonacciInBigInt(10), Equals, rslt)
 }
+
+func (s *EulerSuite) Test_FibonacciConcurrency(c *C) {
+	rslt := 55
+	c.Assert(executeChanFibs(), Equals, rslt)
+}

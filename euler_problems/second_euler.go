@@ -48,3 +48,27 @@ func findLargestFibonacciInBigInt(n int) string {
 	}
 	return current.String()
 }
+
+// concurrency
+func findFibonacciWithChan(ch, quit chan int) string {
+	i, j := 0, 1
+	for {
+		select {
+		case ch <- j:
+			i, j = j, i+j
+		case <-quit:
+			return "exit"
+		}
+	}
+}
+
+func executeChanFibs() int {
+	ch, quit := make(chan int), make(chan int)
+	n := 0
+	go findFibonacciWithChan(ch, quit)
+	for i := 0; i < 10; i++ {
+		n = <-ch
+	}
+	quit <- 0
+	return n
+}
