@@ -11,8 +11,8 @@ func returnThree(a, b, c interface{}) []interface{} {
 }
 
 func (s *EulerSuite) Test_GreatestCommonDivisor(c *C) {
-	expected_result := 4
-	c.Assert(gcd(8, 4), Equals, expected_result)
+	rslt := 4
+	c.Assert(gcd(8, 4), Equals, rslt)
 }
 
 func Test_FindPithagoreanTriplet(t *testing.T) {

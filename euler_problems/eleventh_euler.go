@@ -23,6 +23,7 @@ var grid = [][]int{
 	{1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48},
 }
 
+// better with varargs, I guess
 func Max(x, y int) int {
 	if x > y {
 		return x

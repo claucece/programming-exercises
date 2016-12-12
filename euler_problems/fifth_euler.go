@@ -18,14 +18,15 @@ func generatePrimes(lmt int) []int {
 	return primes
 }
 
+// hate this casting
 func findEvenlyDivisible(lmt int) int {
 	primes := generatePrimes(lmt)
-	result := 1.0
+	posN := 1.0
 
 	for i := 0; i < len(primes); i++ {
-		f_primes := float64(primes[i])
-		exp := math.Floor(math.Log(float64(lmt)) / math.Log(f_primes))
-		result = result * (math.Pow(f_primes, exp))
+		frstPrimes := float64(primes[i])
+		exp := math.Floor(math.Log(float64(lmt)) / math.Log(frstPrimes))
+		posN = posN * (math.Pow(frstPrimes, exp))
 	}
-	return int(result)
+	return int(posN)
 }

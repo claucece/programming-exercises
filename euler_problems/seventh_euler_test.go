@@ -5,7 +5,7 @@ import (
 )
 
 func (s *EulerSuite) Test_FindNPrime(c *C) {
-	expected_result := 104743
+	rslt := 104743
 
-	c.Assert(findPrime(10001), Equals, expected_result)
+	c.Assert(findPrime(10001), Equals, rslt)
 }

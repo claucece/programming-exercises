@@ -5,7 +5,7 @@ import (
 )
 
 func (s *EulerSuite) Test_FindLagestPalindrome(c *C) {
-	result := 899
+	rslt := 899
 
-	c.Assert(findLargestPalindrome(998), Equals, result)
+	c.Assert(findLargestPalindrome(998), Equals, rslt)
 }

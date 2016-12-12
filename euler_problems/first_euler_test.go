@@ -12,12 +12,12 @@ type EulerSuite struct{}
 var _ = Suite(&EulerSuite{})
 
 func (s *EulerSuite) Test_SumMultiplesByBruteForce(c *C) {
-	r := 233168
-	c.Assert(sumMultiplesByBruteForce(1000), Equals, r)
-	c.Assert(sumMultiples(1000), Equals, r)
+	rslt := 233168
+	c.Assert(sumMultiplesByBruteForce(1000), Equals, rslt)
+	c.Assert(sumMultiples(1000), Equals, rslt)
 }
 
 func (s *EulerSuite) Test_SumMultiplesByProgression(c *C) {
-	r := 233168
-	c.Assert(sumMultiples(1000), Equals, r)
+	rslt := 233168
+	c.Assert(sumMultiples(1000), Equals, rslt)
 }

@@ -5,8 +5,8 @@ import (
 )
 
 func (s *EulerSuite) Test_FindSumOfPrimes(c *C) {
-	expected_result := 17
+	rslt := 17
 
-	c.Assert(findSumOfPrimesByBruteForce(10), Equals, expected_result)
-	c.Assert(findPrimesBySieve(10), Equals, expected_result)
+	c.Assert(findSumOfPrimesByBruteForce(10), Equals, rslt)
+	c.Assert(findPrimesBySieve(10), Equals, rslt)
 }

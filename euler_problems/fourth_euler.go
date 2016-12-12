@@ -14,8 +14,8 @@ func reverse(s string) string {
 
 func makePalindrome(n int) int {
 	s := ""
-	rev_int := []string{reverse(strconv.Itoa(n))}
-	for _, x := range rev_int {
+	revInt := []string{reverse(strconv.Itoa(n))}
+	for _, x := range revInt {
 		s += x
 	}
 	str, _ := strconv.Atoi(s)

@@ -5,9 +5,9 @@ import (
 )
 
 func (s *EulerSuite) Test_FindLargestPrime(c *C) {
-	result := 5
-	longResult := 6857
+	rslt := 5
+	lgRslt := 6857
 
-	c.Assert(findLargestPrimeByBruteForce(10), Equals, result)
-	c.Assert(findLargestPrime(600851475143), Equals, longResult)
+	c.Assert(findLargestPrimeByBruteForce(10), Equals, rslt)
+	c.Assert(findLargestPrime(600851475143), Equals, lgRslt)
 }
