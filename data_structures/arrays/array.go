@@ -115,7 +115,7 @@ func deleteInSlice(original []int, d int, order bool) (target []int, err error) 
 		} else if !order {
 			target = target[:len(target)-1]
 		} else {
-			err := errors.New("Element not found in slice")
+			err = errors.New("Element not found in slice")
 		}
 	}
 	return

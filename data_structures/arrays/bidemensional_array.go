@@ -3,37 +3,30 @@ package main
 // TODO: manually test
 // TODO: use the struct
 
-type bidemensionalArray struct {
-	Row_Length    int
-	Col_Length    int
-	ZerothElement *int
+type bidimensionalArray struct {
+	rowLength     int
+	colLength     int
+	zerothElement *int
 }
 
-func (b *bidemensionalArray) MakeBiArray() [][]int {
-	array := make([]int, bidemensionalArray.Row_Length)
-	for _, i := range array {
-		array[i] = make([]int, bidemensionalArray.Col_Length)
-	}
+func (b *bidimensionalArray) makeBiArray() [][]int {
+	array := make([][]int, b.colLength, b.rowLength)
 	return array
 }
 
-func read(array [][]int) int {
-	var r int
-	for _, i := range array {
-		for _, j := range array {
+func readBidimensionalArray(array [][]int) (r int) {
+	for i := 0; i < len(array); i++ {
+		for j := 0; j < len(array); j++ {
 			r = array[i][j]
-			return r
 		}
 	}
-	return nil
+	return
 }
 
-func write(array [][]int, a, b, x, y int) [][]int {
-	if array[x] == 0 || array[x] == nil {
-		if array[y] == 0 || array[y] == nil {
-			s[x][y] = a, b
-			return s
-		}
+// refactor this
+func writeInBidimensionalArray(array [][]int, a, x, y int) (s [][]int) {
+	if array[x][y] == 0 {
+		s[x][y] = a
 	}
-	return 0
+	return s
 }
