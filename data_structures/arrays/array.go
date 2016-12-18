@@ -16,8 +16,8 @@ import (
 // [0:5]: inclusive, exclusive
 
 type array struct {
-	Length        int
-	ZerothElement *int
+	length        int
+	zerothElement *int
 }
 
 // this is the array
@@ -25,9 +25,9 @@ var array [256]int
 
 // this is the slice
 type slice struct {
-	Length        int
-	Capacity      int
-	ZerothElement *int
+	length        int
+	capacity      int
+	zerothElement *int
 }
 
 var sliceExample = slice{
@@ -49,35 +49,36 @@ func isInSlice(s []int, x int) (int, bool) {
 }
 
 func isEmpty(s []int) bool {
-	if len(s) == 0 || len(s) == nil {
+	if s == nil || len(s) == nil {
 		return true
 	}
 	return false
 }
 
 //reads each element
-func read(s []int) (error, int) {
-	var v int
+func read(s []int) (int, error) {
 	if isEmpty {
-		return errors.New("Empty slice")
+		e := errors.New("Empty slice")
 	} else {
-		for i := 0; i <= len(s); i++ {
-			v = s[i]
+		for _, val := range s {
+			v := val
+			e = nil
 		}
 	}
-	return _, v
+	return v, e
 }
 
 //writes elements
-func write(n, pos int, s []int) (error, []int) {
+func write(n, pos int, s []int) ([]int, error) {
 	if isEmpty {
-		return errors.New("Empty slice")
+		e := errors.New("Empty slice")
 	} else {
 		if s[pos] == 0 || s[pos] == nil {
 			s[pos] = n
+			e = nil
 		}
 	}
-	return _, s
+	return s, e
 }
 
 // how to make something optional? how to define the type?
@@ -90,7 +91,7 @@ func makeSlice(types string, length, capacity int) []int {
 	return nil
 }
 
-func appendToSlice(original []int, position, value int, order bool) (error, []int) {
+func appendToSlice(original []int, position, value int, order bool) ([]int, error) {
 	if !order {
 		// make slice of original length plus 1
 		target := make([]int, len(original)+1)
@@ -107,10 +108,10 @@ func appendToSlice(original []int, position, value int, order bool) (error, []in
 		err := errors.New("There is no space")
 		return err, _
 	}
-	return _, target
+	return target, nil
 }
 
-func deleteInSlice(original []int, d int, order bool) (error, []int) {
+func deleteInSlice(original []int, d int, order bool) ([]int, error) {
 	var target []int
 	if !isEmpty {
 		if order {
@@ -123,24 +124,24 @@ func deleteInSlice(original []int, d int, order bool) (error, []int) {
 			return errors.New("element not found"), original
 		}
 	}
-	return errors.New("slice is Empty"), target
+	return target, errors.New("slice is Empty")
 }
 
-func updateInSlice(original []int, u, x int, order bool) (error, []int) {
+func updateInSlice(original []int, u, x int, order bool) ([]int, error) {
 	if !isEmpty {
-		if order == false {
+		if !order {
 			for _, i := range original {
 				if original[i] == x {
+					e := nil
 					original[i] = u
-					return _, original
 				} else {
-					return errors.New("Element not found"), original
+					e = errors.New("Element not found"), original
 
 				}
 			}
 		}
 	}
-	return errors.New("slice is empty"), original
+	return original, e
 }
 
 //NEW vs MAKE
