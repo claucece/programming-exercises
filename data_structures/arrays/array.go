@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-// TODO: do this with sliceExample, refactor all
+// TODO: do this with sliceExample, refactor all, check errors
 
 // Arrays: a numbered sequence of elements of a single type with a fixed length.
 // slices: can never be longer than array but can be smaller. x := make([]float64, 5)
