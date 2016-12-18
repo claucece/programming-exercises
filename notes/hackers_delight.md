@@ -130,7 +130,7 @@ the integers themselves are often called fixed point numbers. Real numbers on
 computers (which may have fractional parts) are often called "floating point"
 numbers.
 
-### Floating Point Arithmetic
+## Floating Point Arithmetic
 
 Floating point arithmetic derives its name from something that happens when you
 use exponential notation. Consider the number 123: it can be written using
@@ -169,3 +169,66 @@ base 10; for this reason, the normalization of a binary floating point number
 simply requires that there be no leading zeroes after the binary point (just as
 the decimal point separates the 100 place from the 10-1 place, the binary point
 separates the 20 place from the 2-1 place).
+
+## Multiplication in binary
+
+Four rules:
+1. 0 x 0 = 0
+2. 0 x 1 = 1
+3. 1 x 0 = 0
+4. 1 x 1 = 1
+
+Need of 'test and shift':
+1. Scann the bits of multiplier right to left, adding or not adding the
+multiplicand depending on 1 or 0.
+2. Left shift the multiplicand.
+
+```
+p = 0; // initialize product p to 0
+while (n != 0) // while multiplier n is not 0
+{
+if ((n & 0x01) != 0) // test lsb of multiplier
+p = p + m; // if 1 then add multiplicand m
+m = m << 1; // left shift multiplicand
+n = n >> 1; // right shift multiplier
+}
+```
+
+Multiplication is implemented on a computer using a slightly different but
+equivalent approach. Since the product can be twice as long as the multiplier
+or the multiplicand, a pair of registers is needed to hold it. Initially the
+rightmost (low order) member of the pair holds the multiplier; the left-most
+(high order) member is zeroed out. The multiplicand is stored in a third
+register. The carry flag is also used to catch any overflow in what follows
+
+```
++----------+
+| m’cand | test least significant bit
++----------+
+ add
+ +--+ +----------+ +----------+
+ |cf|| 00000000 ||multiplier| <- double register pair
+ +--+ +----------+ +----------+
+ hi-order lo-order
+```
+
+Multiplication work like this:
+
+1. The right-most (least significant) bit of the multiplier in the right hand
+register is tested; if it is 1 then the multiplicand is added into the left
+(hi-order) half of the register pair.
+2. The double register pair is right shifted which moves the least significant
+of the hi-order half into the most significant bit of the lo-order half and
+moves the next bit of the multiplier into the right-most position where is can
+be tested.
+The right shift of the register pair is equivalent to left shifting the
+multiplicand and right shifting the multiplier as given in the multiplication
+algorithm above.
+3. Steps 1 and 2 are repeated n times where n is the width of the registers. At
+the end the hi-order half of the product is in the left register and the
+lo-order half of the product is in the right register.
+
+Three ways to make it faster:
+1. Karatsuba algorithm
+2. Toom–Cook multiplication
+3. Schönhage–Strassen algorithm
