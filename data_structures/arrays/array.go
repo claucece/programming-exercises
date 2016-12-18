@@ -2,9 +2,10 @@ package main
 
 import (
 	"errors"
+	"strconv"
 )
 
-// TODO: do this with sliceExample, refactor all, check errors
+// TODO: do this with sliceExample, check errors
 
 // Arrays: a numbered sequence of elements of a single type with a fixed length.
 // slices: can never be longer than array but can be smaller. x := make([]float64, 5)
@@ -36,16 +37,14 @@ var sliceEx = slice{
 	zerothElement: &arrayEx[0], //pointing to the array
 }
 
-func isInSlice(s []int, x int) (int, bool) {
-	i, pos := 1, 1
-	for i <= len(s) && s[i] < x {
-		i++
+func isInSlice(s []int, x int) int {
+	pos := -1
+	for i := range s {
+		if s[i] == x {
+			pos = 1
+		}
 	}
-	if i > len(s) || s[i] > x {
-		pos = -1
-		return pos, false
-	}
-	return pos, true
+	return pos
 }
 
 func isEmpty(s []int) bool {
@@ -55,38 +54,25 @@ func isEmpty(s []int) bool {
 	return false
 }
 
-//reads each element
-// check this, probably not doing what it should
-func read(s []int) (v int, err error) {
+//reads each element, but only returns them as string
+func read(s []int) (v string, err error) {
 	if isEmpty(s) {
 		err = errors.New("Slice is empty")
 	} else {
 		for _, val := range s {
-			v = val
+			v += strconv.Itoa(val)
 		}
 	}
 	return
 }
 
-//writes elements
+//writes elements only if same size
 func write(n, pos int, s []int) ([]int, error) {
 	if !(isEmpty(s)) {
-		if s[pos] == 0 {
-			s[pos] = n
-			return s, nil
-		}
+		s[pos] = n
+		return s, nil
 	}
 	return s, errors.New("Slice is empty")
-}
-
-// how to make something optional? how to define the type?
-func makeSlice(length, capacity int) []int {
-	if length < capacity {
-		var slice2 []int // how to pass the type here?
-		slice2 = slice2[:length]
-		return slice2
-	}
-	return nil
 }
 
 func appendToSlice(original []int, position, value int, order bool) (target []int, err error) {
@@ -108,6 +94,7 @@ func appendToSlice(original []int, position, value int, order bool) (target []in
 	return target, err
 }
 
+// deletes according to index
 func deleteInSlice(original []int, d int, order bool) (target []int, err error) {
 	if !(isEmpty(original)) {
 		if order {
@@ -121,15 +108,12 @@ func deleteInSlice(original []int, d int, order bool) (target []int, err error) 
 	return
 }
 
-// check for all errors
 func updateInSlice(original []int, u, x int, order bool) ([]int, error) {
 	if !(isEmpty(original)) {
 		if !order {
-			for _, i := range original {
-				if original[i] == x {
-					original[i] = u
-					return original, nil
-				}
+			for i := range original {
+				original[i] = u
+				return original, nil
 			}
 		}
 	}
