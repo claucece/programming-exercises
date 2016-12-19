@@ -1,9 +1,5 @@
 package main
 
-import "fmt"
-
-var n []int
-
 func setID(s int) []int {
 	n := make([]int, s)
 	for i := 0; i < s; i++ {
@@ -12,21 +8,19 @@ func setID(s int) []int {
 	return n
 }
 
-func isConnected(p, q int) bool {
+func isConnected(p, q, c int, n []int) bool {
+	n = setID(c)
 	return n[p] == n[q]
 }
 
-func union(p, q int) []int {
-	id_p := n[p]
-	id_q := n[q]
+func union(p, q, c int, n []int) []int {
+	n = setID(c)
+	idP := n[p]
+	idQ := n[q]
 	for _, i := range n {
-		if n[i] == id_p {
-			n[i] = id_q
+		if n[i] == idP {
+			n[i] = idQ
 		}
 	}
 	return n
-}
-
-func main() {
-	fmt.Println(len(n))
 }
