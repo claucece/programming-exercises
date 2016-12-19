@@ -1,5 +1,10 @@
 package euler
 
+import (
+	"fmt"
+	"os"
+)
+
 var grid = [][]int{
 	{8, 2, 22, 97, 38, 15, 0, 40, 00, 75, 4, 5, 07, 78, 52, 12, 50, 77, 91, 8},
 	{49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 00},
@@ -24,7 +29,7 @@ var grid = [][]int{
 }
 
 // better with varargs, I guess
-func Max(x, y int) int {
+func max(x, y int) int {
 	if x > y {
 		return x
 	}
@@ -40,15 +45,15 @@ func findProductOfAdjecentNumbersByGrid(n int) int {
 	for x := 0; x < rows; x++ {
 		for y := 0; y < columns; y++ {
 			if y < (columns - size) {
-				greatest = Max(greatest, grid[x][y]*grid[x][y+1]*grid[x][y+2]*grid[x][y+size])
+				greatest = max(greatest, grid[x][y]*grid[x][y+1]*grid[x][y+2]*grid[x][y+size])
 			}
 			if x < (rows - size) {
-				greatest = Max(greatest, grid[x][y]*grid[x+1][y]*grid[x+2][y]*grid[x+size][y])
+				greatest = max(greatest, grid[x][y]*grid[x+1][y]*grid[x+2][y]*grid[x+size][y])
 				if y < (columns - size) {
-					greatest = Max(greatest, grid[x][y]*grid[x+1][y+1]*grid[x+2][y+2]*grid[x+size][y+size])
+					greatest = max(greatest, grid[x][y]*grid[x+1][y+1]*grid[x+2][y+2]*grid[x+size][y+size])
 				}
 				if y > size {
-					greatest = Max(greatest, grid[x][y]*grid[x+1][y-1]*grid[x+2][y-2]*grid[x+size][y-size])
+					greatest = max(greatest, grid[x][y]*grid[x+1][y-1]*grid[x+2][y-2]*grid[x+size][y-size])
 				}
 			}
 		}
@@ -56,9 +61,28 @@ func findProductOfAdjecentNumbersByGrid(n int) int {
 	return greatest
 }
 
-//func readInput(string fname) {
-//	l := 0
-//}
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
+}
+
+// failing
+func readInput() {
+	f, err := os.Open("grid.txt")
+	check(err)
+
+	b1 := make([][]byte, 800)
+
+	for i := 0; i < 100; i += 39 {
+		innerLen := i + 39
+		b1[i] = make([]byte, innerLen)
+		f.Read(b1[i])
+	}
+
+	fmt.Printf("bytes: %s\n", string(b1[10][0:39]))
+	f.Close()
+}
 
 //func findProductOfAdjecentNumbersByFile(n int) n {
 //	return 70600674
