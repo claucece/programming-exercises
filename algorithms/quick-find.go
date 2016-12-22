@@ -24,3 +24,7 @@ func union(p, q, c int, n []int) []int {
 	}
 	return n
 }
+
+func main() {
+	setID(5)
+}
