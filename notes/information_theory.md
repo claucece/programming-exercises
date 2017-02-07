@@ -1,4 +1,4 @@
-#Information theory
+# Information theory
 
 ## Entropy and uncertainty
 
@@ -61,3 +61,21 @@ For obscuring the redundancy in a pt m.
 1. Confusion: obscures the relationship between pt and ct. By substitution.
 2. Diffusion: dissipates the redundancy of pt by spreading it out over the ct.
 By transposition (permutation).
+
+# Complexity Theory
+
+A methodology for analyzing the *computational complexity* of different
+cryptographic techniques.
+
+## Complexity of algorithms
+
+The computational power needed to execute it. Determined by `T` (time complexity)
+and `S` (space complexity or memory requirement).
+
+Express in `big O`: the order of the magnitude of the computational complexity.
+Just the term of the complexity function that grows the fastest as `n` gets
+larger.
+
+* Constant: its complexity is idependent of `n:O(1)`
+* Linear: its time complexity is `O(n)`.
+* Polinomial: its time complexity is `O(n^m)` when `m` is a constant.

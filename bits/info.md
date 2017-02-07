@@ -43,3 +43,37 @@ than or equal to 0. Two’s-complement encodings are the most common way to
 represent signed integers, that is, numbers that may be either positive or negative.
 Floating-point encodings are a base-two version of scientific notation for
 representing real numbers.
+
+# Words
+
+Every computer has a word size, indicating the nominal size of integer and pointer
+data. Since a virtual address is encoded by such a word, the most important system
+parameter determined by the word size is the maximum size of the virtual address
+space. That is, for a machine with a w-bit word size, the virtual addresses can range
+from 0 to 2w − 1, giving the program access to at most 2w bytes.
+
+Most personal computers today have a 32-bit word size. This limits the virtual
+address space to 4 gigabytes (written 4 GB), that is, just over 4 × 109 bytes. Although
+this is ample space for most applications, we have reached the point where
+many large-scale scientific and database applications require larger amounts of
+storage. Consequently, high-end machines with 64-bit word sizes are becoming increasingly
+common as storage costs decrease. As hardware costs drop over time,
+even desktop and laptop machines will switch to 64-bit word sizes, and so we will
+consider the general case of a w-bit word size, as well as the special cases of w = 32
+and w = 64.
+
+NOTE: A pointer (e.g., a variable declared as being of type
+“char *”) uses the full word size of the machine. Most machines also support
+two different floating-point formats: single precision, declared in C as float,
+and double precision, declared in C as double. These formats use 4 and 8 bytes,
+respectively.
+
+The former convention—where the least significant byte comes first—is referred to as
+little endian. This convention is followed by most Intel-compatible machines. The
+latter convention—where the most significant byte comes first—is referred to as big endian.
+This convention is followed by most machines from IBM and Sun Microsystems. Note that we said “most.”
+The conventions do not split precisely along corporate boundaries. For example,
+both IBM and Sun manufacture machines that use Intel-compatible processors
+and hence are little endian. Many recent microprocessors are bi-endian, meaning
+that they can be configured to operate as either little- or big-endian machines.
+
